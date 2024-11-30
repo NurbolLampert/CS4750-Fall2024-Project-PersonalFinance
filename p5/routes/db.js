@@ -84,11 +84,6 @@ router.delete('/transactions/:id', async (req, res) => {
     }
 });
 
-
-
-
-
-// Fetch accounts for a user
 router.get('/accounts/:user_id', async (req, res) => {
     const { user_id } = req.params;
     try {
@@ -106,13 +101,11 @@ router.get('/accounts/:user_id', async (req, res) => {
     }
 });
 
-// routes/db.js
 router.get('/budgets/accounts/:user_id', async (req, res) => {
     const { user_id } = req.params;
     try {
         const pool = await sql.connect(dbConfig);
 
-        // Fetch all accounts for the user
         const accounts = await pool.request()
             .input('user_id', sql.Int, user_id)
             .query('SELECT account_id, account_type, balance FROM Account WHERE user_id = @user_id');
@@ -121,7 +114,7 @@ router.get('/budgets/accounts/:user_id', async (req, res) => {
             return res.status(404).json({ error: 'No accounts found for this user' });
         }
 
-        res.json(accounts.recordset); // Return all accounts for this user
+        res.json(accounts.recordset);
     } catch (error) {
         console.error('Error fetching accounts:', error);
         res.status(500).json({ error: error.message });
