@@ -29,4 +29,5 @@ DB_USER=sa
 DB_PASSWORD=your_db_password
 
 2) node
-3) node app.js
+3) install plaid
+4) node app.js
