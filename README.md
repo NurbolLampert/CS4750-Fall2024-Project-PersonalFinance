@@ -9,13 +9,13 @@ Jacob Neale - hqn2se
 
 To run the program:
 
-#Frontend:
+# Frontend:
 
 1) npm install
 2) npm start
 
 
-#Backend:
+# Backend:
 1) Edit .env file:
 Plaid Configuration
 PLAID_CLIENT_ID=your_plaid_client_id
